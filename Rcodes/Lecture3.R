@@ -41,7 +41,6 @@ bbasis = create.bspline.basis(rangeval=c(0,365),breaks=knots,norder=6)
 tbvals = eval.basis(1:365,bbasis)
 
 yhat = tbvals%*%solve( t(tbvals)%*%tbvals )%*%t(tbvals)%*%y
-yhat[351:365] = yhat[350] + (1:15)/16*(yhat[1]-yhat[350])
 
 err = y-yhat
 
